@@ -15,4 +15,8 @@
   .w-14 {
     width: 3.5rem;
   }
+
+  .shadow-real {
+    box-shadow: 0px 3px 6px #00000029;
+  }
 }

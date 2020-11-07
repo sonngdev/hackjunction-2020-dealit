@@ -9,8 +9,6 @@ function ListView() {
   const [showSuggestionSlideup, setShowSuggestionSlideup] = useState(true);
   const [listProducts, setListProducts] = useState([]);
 
-  const showSlideup = () => setShowSuggestionSlideup(true);
-
   useEffect(() => {
     const request = async () => {
       const lps = await getListProducts();
@@ -34,18 +32,22 @@ function ListView() {
           </span>
           <button
             type="button"
-            onClick={showSlideup}
-            className="bg-purple rounded-full w-8 h-8 inline-flex justify-center items-center"
+            onClick={() => setShowSuggestionSlideup(true)}
+            className="bg-purple rounded-full w-8 h-8 inline-flex justify-center items-center shadow-real"
           >
             <span
               className="block text-white text-2xl font-light"
-              style={{ position: 'relative', top: -2, left: -1 }}
+              style={{ position: 'relative', top: -1, left: 0 }}
             >
               +
             </span>
           </button>
         </div>
-        {showSuggestionSlideup && <SuggestionSlideup />}
+        {showSuggestionSlideup && (
+          <SuggestionSlideup
+            onBackgroundTap={() => setShowSuggestionSlideup(false)}
+          />
+        )}
         <PersonalList listProducts={listProducts} />
       </div>
     </div>

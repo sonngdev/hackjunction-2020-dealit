@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getSuggestions } from 'utils/request.mock';
 import Suggestion from './Suggestion';
 
-function SuggestionSlideup() {
+function SuggestionSlideup({ onBackgroundTap }) {
   const [suggestions, setSuggestions] = useState([]);
   const [selections, setSelections] = useState([]);
 
@@ -28,6 +28,7 @@ function SuggestionSlideup() {
     <div
       className="h-screen w-screen absolute top-0 bottom-0 right-0 left-0 flex flex-col-reverse"
       style={{ backgroundColor: 'rgba(0, 0, 0, 0.85)' }}
+      onClick={onBackgroundTap}
     >
       <div
         className="rounded-t-4xl bottom-0 bg-pearl w-full px-4 pb-8"
