@@ -1,20 +1,29 @@
-import React, { useState, useEffect } from "react";
-import { getSuggestions } from "utils/request.mock";
-import Suggestion from "./Suggestion";
+import React, { useState, useEffect } from 'react';
+import { getSuggestions, getListProducts } from 'utils/request.mock';
+import Suggestion from './Suggestion';
+import PersonalList from './PersonalList';
 
 function ListView() {
   const [suggestions, setSuggestions] = useState([]);
+  const [listProducts, setListProducts] = useState([]);
 
   useEffect(() => {
-    if (suggestions.length) return;
-
     const request = async () => {
       const suggestions = await getSuggestions();
       setSuggestions(suggestions);
     };
 
     request();
-  }, [suggestions]);
+  }, []);
+
+  useEffect(() => {
+    const request = async () => {
+      const lps = await getListProducts();
+      setListProducts(lps);
+    };
+
+    request();
+  }, []);
 
   return (
     <div>
@@ -22,6 +31,7 @@ function ListView() {
       {suggestions.map((suggestion) => (
         <Suggestion key={suggestion.id} suggestion={suggestion} />
       ))}
+      <PersonalList listProducts={listProducts} />
     </div>
   );
 }
