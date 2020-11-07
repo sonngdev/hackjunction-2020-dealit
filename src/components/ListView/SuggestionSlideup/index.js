@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { getSuggestions } from 'utils/request.mock';
 import Button from 'components/Shared/Button';
 import Suggestion from './Suggestion';
 
-function SuggestionSlideup({ onBackgroundTap }) {
+function SuggestionSlideup({ closeSlideup }) {
   const [suggestions, setSuggestions] = useState([]);
   const [selections, setSelections] = useState([]);
+
+  const backgroundRef = useRef();
+  const hideSlideup = (e) => {
+    if (e.target === backgroundRef.current) closeSlideup();
+  };
 
   useEffect(() => {
     const request = async () => {
@@ -29,7 +34,8 @@ function SuggestionSlideup({ onBackgroundTap }) {
     <div
       className="h-screen w-screen absolute top-0 bottom-0 right-0 left-0 flex flex-col-reverse"
       style={{ backgroundColor: 'rgba(0, 0, 0, 0.85)' }}
-      onClick={onBackgroundTap}
+      onClick={hideSlideup}
+      ref={backgroundRef}
     >
       <div
         className="rounded-t-4xl bottom-0 bg-pearl w-full px-4 pb-8"

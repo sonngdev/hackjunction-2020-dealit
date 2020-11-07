@@ -45,7 +45,7 @@ function ListView() {
         </div>
         {showSuggestionSlideup && (
           <SuggestionSlideup
-            onBackgroundTap={() => setShowSuggestionSlideup(false)}
+            closeSlideup={() => setShowSuggestionSlideup(false)}
           />
         )}
         <PersonalList listProducts={listProducts} />
