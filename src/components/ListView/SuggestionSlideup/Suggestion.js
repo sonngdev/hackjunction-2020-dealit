@@ -4,7 +4,7 @@ import { ReactComponent as PlusButtonSvg } from 'assets/svgs/plus-button.svg';
 
 function Suggestion({ suggestion, onToggleSelect, selected }) {
   return (
-    <div className="flex items-center">
+    <div className="flex items-center mb-4">
       <button type="button" onClick={onToggleSelect}>
         {selected ? <CheckButtonSvg /> : <PlusButtonSvg />}
       </button>
@@ -13,7 +13,7 @@ function Suggestion({ suggestion, onToggleSelect, selected }) {
         alt={suggestion.name}
         className="w-8 h-8 object-contain ml-5"
       />
-      <span>{suggestion.name}</span>
+      <div>{suggestion.name}</div>
     </div>
   );
 }

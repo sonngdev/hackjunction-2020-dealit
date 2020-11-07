@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getSuggestions } from 'utils/request.mock';
+import Button from 'components/Shared/Button';
 import Suggestion from './Suggestion';
 
 function SuggestionSlideup({ onBackgroundTap }) {
@@ -46,6 +47,10 @@ function SuggestionSlideup({ onBackgroundTap }) {
             onToggleSelect={toggleSuggestion(suggestion.id)}
           />
         ))}
+        <div className="ml-12 mt-2 mb-6 text-gray-800 text-opacity-50">
+          + Add others ...
+        </div>
+        <Button>Save to My List</Button>
       </div>
     </div>
   );
