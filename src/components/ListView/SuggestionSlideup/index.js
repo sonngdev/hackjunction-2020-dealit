@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getSuggestions } from 'utils/request.mock';
 import Suggestion from './Suggestion';
 
-function SuggestionModal() {
+function SuggestionSlideup() {
   const [suggestions, setSuggestions] = useState([]);
 
   useEffect(() => {
@@ -23,4 +23,4 @@ function SuggestionModal() {
   );
 }
 
-export default SuggestionModal;
+export default SuggestionSlideup;

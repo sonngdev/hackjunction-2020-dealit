@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { getListProducts } from 'utils/request.mock';
 import Header from './Header';
-import SuggestionModal from './SuggestionModal';
+import SuggestionSlideup from './SuggestionSlideup';
 import PersonalList from './PersonalList';
 import svgBackground from 'assets/images/background.svg';
 
 function ListView() {
-  const [showSuggestionModal, setShowSuggestionModal] = useState(false);
+  const [showSuggestionSlideup, setShowSuggestionSlideup] = useState(false);
   const [listProducts, setListProducts] = useState([]);
 
-  const showModal = () => setShowSuggestionModal(true);
+  const showSlideup = () => setShowSuggestionSlideup(true);
 
   useEffect(() => {
     const request = async () => {
@@ -34,7 +34,7 @@ function ListView() {
           </span>
           <button
             type="button"
-            onClick={showModal}
+            onClick={showSlideup}
             className="bg-purple rounded-full w-8 h-8 inline-flex justify-center items-center"
           >
             <span
@@ -45,7 +45,7 @@ function ListView() {
             </span>
           </button>
         </div>
-        {showSuggestionModal && <SuggestionModal />}
+        {showSuggestionSlideup && <SuggestionSlideup />}
         <PersonalList listProducts={listProducts} />
       </div>
     </div>
