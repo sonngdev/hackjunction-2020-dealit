@@ -4,6 +4,7 @@ import Suggestion from './Suggestion';
 
 function SuggestionSlideup() {
   const [suggestions, setSuggestions] = useState([]);
+  const [selections, setSelections] = useState([]);
 
   useEffect(() => {
     const request = async () => {
@@ -14,11 +15,37 @@ function SuggestionSlideup() {
     request();
   }, []);
 
+  const suggestionSelected = (id) => selections.includes(id);
+  const toggleSuggestion = (id) => () => {
+    if (suggestionSelected(id)) {
+      setSelections((ss) => ss.filter((s) => s !== id));
+    } else {
+      setSelections((ss) => [...ss, id]);
+    }
+  };
+
   return (
-    <div>
-      {suggestions.map((suggestion) => (
-        <Suggestion key={suggestion.id} suggestion={suggestion} />
-      ))}
+    <div
+      className="h-screen w-screen absolute top-0 bottom-0 right-0 left-0 flex flex-col-reverse"
+      style={{ backgroundColor: 'rgba(0, 0, 0, 0.85)' }}
+    >
+      <div
+        className="rounded-t-4xl bottom-0 bg-pearl w-full px-4 pb-8"
+        style={{ paddingTop: 8 }}
+      >
+        <div
+          className="rounded-full w-10 h-1 m-auto mb-6"
+          style={{ backgroundColor: '#CECECE' }}
+        />
+        {suggestions.map((suggestion) => (
+          <Suggestion
+            key={suggestion.id}
+            suggestion={suggestion}
+            selected={suggestionSelected(suggestion.id)}
+            onToggleSelect={toggleSuggestion(suggestion.id)}
+          />
+        ))}
+      </div>
     </div>
   );
 }

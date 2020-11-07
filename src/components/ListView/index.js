@@ -3,10 +3,10 @@ import { getListProducts } from 'utils/request.mock';
 import Header from './Header';
 import SuggestionSlideup from './SuggestionSlideup';
 import PersonalList from './PersonalList';
-import svgBackground from 'assets/images/background.svg';
+import svgBackground from 'assets/svgs/background.svg';
 
 function ListView() {
-  const [showSuggestionSlideup, setShowSuggestionSlideup] = useState(false);
+  const [showSuggestionSlideup, setShowSuggestionSlideup] = useState(true);
   const [listProducts, setListProducts] = useState([]);
 
   const showSlideup = () => setShowSuggestionSlideup(true);
