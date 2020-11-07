@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .rounded-t-4xl {
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+  }
+
+  .h-14 {
+    height: 3.5rem;
+  }
+
+  .w-14 {
+    width: 3.5rem;
+  }
+}
