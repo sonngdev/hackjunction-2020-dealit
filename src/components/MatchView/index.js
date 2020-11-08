@@ -17,7 +17,7 @@ function MatchView({ setView }) {
       <button
         className="fixed"
         style={{ top: 70, left: 20 }}
-        onclick={() => setView('list')}
+        onClick={() => setView('list')}
       >
         <img src={svgCaretLeft} alt="" />
       </button>
