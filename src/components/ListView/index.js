@@ -8,7 +8,7 @@ import SuggestionSlideup from './SuggestionSlideup';
 import ListProduct from './ListProduct';
 import VariantSlideup from './VariantSlideup';
 
-function ListView() {
+function ListView({ setView }) {
   const [showSuggestionSlideup, setShowSuggestionSlideup] = useState(false);
   const [showVariantSlideup, setShowVariantSlideup] = useState(false);
   const [listProducts, setListProducts] = useState([]);
@@ -57,7 +57,7 @@ function ListView() {
           </div>
         </div>
 
-        <Button>Find my deals</Button>
+        <Button onClick={() => setView('match')}>Find my deals</Button>
 
         {showSuggestionSlideup && (
           <SuggestionSlideup

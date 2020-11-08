@@ -4,7 +4,7 @@ import PinSvg from 'assets/svgs/pin.svg';
 import BackButtonSvg from 'assets/svgs/back-button.svg';
 import CaretRightSvg from 'assets/svgs/caret-right.svg';
 
-function DealView() {
+function DealView({ setView }) {
   return (
     <div className="h-screen">
       <img
@@ -13,7 +13,11 @@ function DealView() {
         className="w-full object-cover"
         style={{ height: 171 }}
       />
-      <button className="fixed" style={{ top: '1rem', left: '1rem' }}>
+      <button
+        className="fixed"
+        style={{ top: '1rem', left: '1rem' }}
+        onClick={() => setView('match')}
+      >
         <img src={BackButtonSvg} alt="" />
       </button>
       <div
@@ -57,7 +61,7 @@ function DealView() {
             style={{ width: 68, height: 60 }}
             className="rounded-xl object-contain"
           />
-          <div className="w-full flex items-center ml-3 text-xs">
+          <div className="w-full flex justify-between items-center ml-3 text-xs">
             <div>
               <h3 className="font-bold" style={{ lineHeight: 1.2 }}>
                 Seventh Generation Liquid Laundry Detergent
@@ -83,7 +87,7 @@ function DealView() {
             style={{ width: 68, height: 60 }}
             className="rounded-xl object-contain"
           />
-          <div className="w-full flex items-center ml-3 text-xs">
+          <div className="w-full flex justify-between items-center ml-3 text-xs">
             <div>
               <h3 className="font-bold" style={{ lineHeight: 1.2 }}>
                 Head & Shoulder Citrus Fresh
@@ -109,7 +113,7 @@ function DealView() {
             style={{ width: 68, height: 60 }}
             className="rounded-xl object-contain"
           />
-          <div className="w-full flex items-center ml-3 text-xs">
+          <div className="w-full flex justify-between items-center ml-3 text-xs">
             <div>
               <h3 className="font-bold" style={{ lineHeight: 1.2 }}>
                 ArtNaturals Clarifying Face Wash

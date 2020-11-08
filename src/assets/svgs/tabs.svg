@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="343" height="48" viewBox="0 0 343 48">
+  <g id="Group_508" data-name="Group 508" transform="translate(-16 -108)">
+    <rect id="Rectangle_1059" data-name="Rectangle 1059" width="343" height="48" rx="24" transform="translate(16 108)" fill="#fff"/>
+    <rect id="Rectangle_1060" data-name="Rectangle 1060" width="167" height="40" rx="20" transform="translate(20 112)" fill="#7373d9"/>
+    <text id="Saving_amount" data-name="Saving amount" transform="translate(56 136)" fill="#fff" font-size="14" font-family="Nunito-SemiBold, Nunito" font-weight="600"><tspan x="0" y="0">Saving amount</tspan></text>
+    <text id="Near_me" data-name="Near me" transform="translate(246 136)" fill="rgba(112,112,112,0.5)" font-size="14" font-family="Nunito-SemiBold, Nunito" font-weight="600"><tspan x="0" y="0">Near me</tspan></text>
+  </g>
+</svg>
