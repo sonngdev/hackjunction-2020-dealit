@@ -63,7 +63,9 @@ function ListView() {
           ))}
         </div>
 
-        {showVariantSlideup && <VariantSlideup />}
+        {showVariantSlideup && (
+          <VariantSlideup closeSlideup={() => setShowVariantSlideup(false)} />
+        )}
       </div>
     </div>
   );
