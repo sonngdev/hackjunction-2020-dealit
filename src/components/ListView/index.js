@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getListProducts } from 'utils/request.mock';
 import svgBackground from 'assets/svgs/background.svg';
+import { ReactComponent as PlusButtonSvg } from 'assets/svgs/plus-button-purple.svg';
 import Button from 'components/Shared/Button';
 import Header from './Header';
 import SuggestionSlideup from './SuggestionSlideup';
@@ -40,12 +41,7 @@ function ListView() {
               onClick={() => setShowSuggestionSlideup(true)}
               className="bg-purple rounded-full w-8 h-8 inline-flex justify-center items-center shadow-real"
             >
-              <span
-                className="block text-white text-2xl font-light"
-                style={{ position: 'relative', top: -1, left: 0 }}
-              >
-                +
-              </span>
+              <PlusButtonSvg />
             </button>
           </div>
 
