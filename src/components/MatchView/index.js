@@ -3,6 +3,9 @@ import svgBackground from 'assets/svgs/background.svg';
 import svgPinGray from 'assets/svgs/pin-gray.svg';
 import svgCaretLeft from 'assets/svgs/caret-left.svg';
 import svgTabs from 'assets/svgs/tabs.svg';
+import pngWalmart from 'assets/images/walmart-2000@2x.png';
+import pngWalgreen from 'assets/images/walgreens@2x.png';
+import pngKroger from 'assets/images/Kroger@2x.png';
 
 function MatchView({ setView }) {
   return (
@@ -36,7 +39,7 @@ function MatchView({ setView }) {
             onClick={() => setView('deal')}
           >
             <img
-              src="https://i5.walmartimages.com/asr/50a0f02e-1ac5-4e6b-99b4-875ea13fbcee.f9970846adbf26acb9c7821b05cb0b27.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff"
+              src={pngWalmart}
               alt="Bamboo Toothbrush"
               style={{ width: 68, height: 60 }}
               className="rounded-xl object-contain"
@@ -63,7 +66,7 @@ function MatchView({ setView }) {
           </div>
           <div className="bg-white rounded-xl w-full p-2 flex mb-3">
             <img
-              src="https://i5.walmartimages.com/asr/50a0f02e-1ac5-4e6b-99b4-875ea13fbcee.f9970846adbf26acb9c7821b05cb0b27.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff"
+              src={pngWalgreen}
               alt="Bamboo Toothbrush"
               style={{ width: 68, height: 60 }}
               className="rounded-xl object-contain"
@@ -90,7 +93,7 @@ function MatchView({ setView }) {
           </div>
           <div className="bg-white rounded-xl w-full p-2 flex mb-3">
             <img
-              src="https://i5.walmartimages.com/asr/50a0f02e-1ac5-4e6b-99b4-875ea13fbcee.f9970846adbf26acb9c7821b05cb0b27.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff"
+              src={pngKroger}
               alt="Bamboo Toothbrush"
               style={{ width: 68, height: 60 }}
               className="rounded-xl object-contain"
