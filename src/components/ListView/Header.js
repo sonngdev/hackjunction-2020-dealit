@@ -5,10 +5,10 @@ function Header() {
   return (
     <div className="text-white flex justify-between items-center px-4 mt-16 mb-8">
       <div>
-        <div style={{ color: '#FFFFFF80' }} className="text-sm">
+        <div style={{ color: '#FFFFFF80' }} className="text-sm font-normal">
           Good morning,
         </div>
-        <div className="text-xl">Junction Connected</div>
+        <div className="text-xl font-bold">Junction Connected</div>
       </div>
       <img
         src={junctionBlack}
