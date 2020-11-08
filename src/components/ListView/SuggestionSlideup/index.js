@@ -31,7 +31,7 @@ function SuggestionSlideup({ closeSlideup, setListProducts }) {
   };
   const saveSelections = async () => {
     const listProducts = await createListProducts(selections);
-    setListProducts((lps) => [...lps, listProducts]);
+    setListProducts((lps) => lps.concat(listProducts));
     closeSlideup();
   };
 
@@ -61,7 +61,9 @@ function SuggestionSlideup({ closeSlideup, setListProducts }) {
         <div className="ml-12 mt-2 mb-6 text-gray-800 text-opacity-50">
           + Add others ...
         </div>
-        <Button onClick={saveSelections}>Save to My List</Button>
+        <Button className="mt-4" onClick={saveSelections}>
+          Save to My List
+        </Button>
       </div>
     </div>
   );

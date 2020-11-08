@@ -2,17 +2,32 @@ import { ensureCamel } from './helpers';
 
 const SUGGESTIONS = [
   {
-    id: 1,
-    name: 'Detergent',
+    id: 10,
+    name: 'Razor',
     image_url: 'http://via.placeholder.com/150',
     variants: [
       {
         id: 1,
-        name: 'Top',
+        name: 'Electric',
       },
       {
         id: 2,
-        name: 'Front',
+        name: 'Physical',
+      },
+    ],
+  },
+  {
+    id: 11,
+    name: 'Battery',
+    image_url: 'http://via.placeholder.com/150',
+    variants: [
+      {
+        id: 1,
+        name: 'AA',
+      },
+      {
+        id: 2,
+        name: 'AAA',
       },
     ],
   },
@@ -67,13 +82,13 @@ export const getListProducts = () => Promise.resolve(ensureCamel(MY_LIST));
 
 export const createListProducts = (productIds) => {
   const listProducts = SUGGESTIONS.filter((s) => productIds.includes(s.id)).map(
-    (s, i) => ({
-      id: i,
+    (s) => ({
+      id: MY_LIST[MY_LIST.length - 1].id + 100,
       product: s,
     }),
   );
 
-  MY_LIST = listProducts;
+  MY_LIST = MY_LIST.concat(listProducts);
 
   return Promise.resolve(ensureCamel(listProducts));
 };
