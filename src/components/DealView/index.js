@@ -23,8 +23,9 @@ function DealView() {
         <div className="flex justify-between items-center">
           <h1 className="font-bold text-xl">Walmart</h1>
 
-          <div className="bg-green text-white rounded-xl px-4 py-2 text-xs">
-            Save $17
+          <div className="bg-lightgreen text-green rounded-lg px-2 text-xs flex items-center">
+            <div>Save</div>
+            <div className="text-xl ml-1">$17</div>
           </div>
         </div>
         <div className="text-xs font-normal text-gray-600">
