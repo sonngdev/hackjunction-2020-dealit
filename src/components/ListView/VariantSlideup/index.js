@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react';
 import Button from 'components/Shared/Button';
+import { updateListProduct } from 'utils/request.mock';
 
-function VariantSlideup({ closeSlideup, listProduct }) {
+function VariantSlideup({ closeSlideup, listProduct, setListProducts }) {
   const { imageUrl, name, variants } = listProduct.product;
 
   const [selectedVariants, setSelectedVariants] = useState(
@@ -11,6 +12,19 @@ function VariantSlideup({ closeSlideup, listProduct }) {
   const backgroundRef = useRef();
   const hideSlideup = (e) => {
     if (e.target === backgroundRef.current) closeSlideup();
+  };
+
+  const saveSelectedVariants = async () => {
+    const foo = await updateListProduct(
+      listProduct.id,
+      selectedVariants.map((v) => v.id),
+    );
+    setListProducts((lps) =>
+      lps.map((lp) => {
+        return lp.id === foo.id ? foo : lp;
+      }),
+    );
+    closeSlideup();
   };
 
   return (
@@ -58,7 +72,7 @@ function VariantSlideup({ closeSlideup, listProduct }) {
           )}
         </div>
 
-        <Button>Save</Button>
+        <Button onClick={saveSelectedVariants}>Save</Button>
       </div>
     </div>
   );

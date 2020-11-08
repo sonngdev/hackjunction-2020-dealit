@@ -69,6 +69,7 @@ function ListView() {
           <VariantSlideup
             closeSlideup={() => setShowVariantSlideup(false)}
             listProduct={varyingListProduct}
+            setListProducts={setListProducts}
           />
         )}
       </div>

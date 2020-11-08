@@ -31,7 +31,7 @@ function SuggestionSlideup({ closeSlideup, setListProducts }) {
   };
   const saveSelections = async () => {
     const listProducts = await createListProducts(selections);
-    setListProducts(listProducts);
+    setListProducts((lps) => [...lps, listProducts]);
     closeSlideup();
   };
 
