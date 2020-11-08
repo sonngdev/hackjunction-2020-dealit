@@ -39,6 +39,26 @@ let MY_LIST = [
       ],
     },
   },
+  {
+    id: 2,
+    product: {
+      id: 1,
+      name: 'Toothbrush',
+      image_url: 'http://via.placeholder.com/150',
+      variants: [
+        {
+          id: 1,
+          name: 'Children',
+          selected: false,
+        },
+        {
+          id: 2,
+          name: 'Adult',
+          selected: false,
+        },
+      ],
+    },
+  },
 ];
 
 export const getSuggestions = () => Promise.resolve(ensureCamel(SUGGESTIONS));

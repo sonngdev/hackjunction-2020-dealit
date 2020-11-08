@@ -14,7 +14,7 @@ function ListProduct({
   };
 
   return (
-    <div className="bg-white rounded-lg p-4">
+    <div className="bg-white rounded-lg p-4 mb-3">
       <div className="flex justify-between items-center">
         <div className="flex items-center">
           <img src={imageUrl} className="w-8 h-8 object-contain" alt={name} />
