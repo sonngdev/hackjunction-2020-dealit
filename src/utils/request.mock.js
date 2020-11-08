@@ -4,7 +4,7 @@ const SUGGESTIONS = [
   {
     id: 10,
     name: 'Razor',
-    image_url: 'http://via.placeholder.com/150',
+    image_url: 'https://junction.blob.core.windows.net/icons/razor.svg',
     variants: [
       {
         id: 1,
@@ -18,16 +18,16 @@ const SUGGESTIONS = [
   },
   {
     id: 11,
-    name: 'Battery',
-    image_url: 'http://via.placeholder.com/150',
+    name: 'Face soap',
+    image_url: 'https://junction.blob.core.windows.net/icons/face%20soap.svg',
     variants: [
       {
         id: 1,
-        name: 'AA',
+        name: 'For oily skin',
       },
       {
         id: 2,
-        name: 'AAA',
+        name: 'For dry skin',
       },
     ],
   },
@@ -39,16 +39,17 @@ let MY_LIST = [
     product: {
       id: 1,
       name: 'Detergent',
-      image_url: 'http://via.placeholder.com/150',
+      image_url:
+        'https://junction.blob.core.windows.net/icons/liquid-detergent.svg',
       variants: [
         {
           id: 1,
-          name: 'Top',
+          name: 'For Top load washer',
           selected: true,
         },
         {
           id: 2,
-          name: 'Front',
+          name: 'For Front load washer',
           selected: false,
         },
       ],
@@ -58,17 +59,17 @@ let MY_LIST = [
     id: 2,
     product: {
       id: 1,
-      name: 'Toothbrush',
-      image_url: 'http://via.placeholder.com/150',
+      name: 'Shampoo',
+      image_url: 'https://junction.blob.core.windows.net/icons/shampoo.svg',
       variants: [
         {
           id: 1,
-          name: 'Children',
+          name: 'For men',
           selected: false,
         },
         {
           id: 2,
-          name: 'Adult',
+          name: 'For women',
           selected: false,
         },
       ],
