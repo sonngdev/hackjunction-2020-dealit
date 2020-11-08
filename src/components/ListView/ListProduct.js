@@ -1,7 +1,11 @@
 import React from 'react';
 
-function ListProduct({ listProduct }) {
+function ListProduct({ listProduct, openVariantSlideup }) {
   const { imageUrl, name, variants } = listProduct.product;
+
+  const showVariantSlideup = () => {
+    openVariantSlideup();
+  };
 
   return (
     <div className="bg-white rounded-lg flex justify-between items-center p-4">
@@ -11,7 +15,9 @@ function ListProduct({ listProduct }) {
       </div>
 
       {variants && variants.length && (
-        <button className="text-purple text-sm">Select variants</button>
+        <button className="text-purple text-sm" onClick={showVariantSlideup}>
+          Select variants
+        </button>
       )}
     </div>
   );
