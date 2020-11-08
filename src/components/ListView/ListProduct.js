@@ -6,6 +6,7 @@ function ListProduct({
   openVariantSlideup,
 }) {
   const { imageUrl, name, variants } = listProduct.product;
+  const selectedVariants = variants.filter((v) => v.selected);
 
   const showVariantSlideup = () => {
     setVaryingListProduct(listProduct);
@@ -20,24 +21,22 @@ function ListProduct({
           <div>{name}</div>
         </div>
 
-        {variants && variants.length && (
+        {variants.length && (
           <button className="text-purple text-sm" onClick={showVariantSlideup}>
-            Select variants
+            {selectedVariants.length ? 'Edit variants' : 'Select variants'}
           </button>
         )}
       </div>
 
       <div className="ml-8">
-        {variants
-          .filter((v) => v.selected)
-          .map((v) => (
-            <div
-              key={v.id}
-              className="px-3 py-1 bg-gray-300 rounded-full mr-2 mt-2 text-xs inline-block text-purple"
-            >
-              {v.name}
-            </div>
-          ))}
+        {selectedVariants.map((v) => (
+          <div
+            key={v.id}
+            className="px-3 py-1 bg-gray-300 rounded-full mr-2 mt-2 text-xs inline-block text-purple"
+          >
+            {v.name}
+          </div>
+        ))}
       </div>
     </div>
   );
