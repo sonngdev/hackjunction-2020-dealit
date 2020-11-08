@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { getSuggestions } from 'utils/request.mock';
+import { getSuggestions, createListProducts } from 'utils/request.mock';
 import Button from 'components/Shared/Button';
 import Suggestion from './Suggestion';
 
-function SuggestionSlideup({ closeSlideup }) {
+function SuggestionSlideup({ closeSlideup, setListProducts }) {
   const [suggestions, setSuggestions] = useState([]);
   const [selections, setSelections] = useState([]);
 
@@ -28,6 +28,11 @@ function SuggestionSlideup({ closeSlideup }) {
     } else {
       setSelections((ss) => [...ss, id]);
     }
+  };
+  const saveSelections = async () => {
+    const listProducts = await createListProducts(selections);
+    setListProducts(listProducts);
+    closeSlideup();
   };
 
   return (
@@ -56,7 +61,7 @@ function SuggestionSlideup({ closeSlideup }) {
         <div className="ml-12 mt-2 mb-6 text-gray-800 text-opacity-50">
           + Add others ...
         </div>
-        <Button>Save to My List</Button>
+        <Button onClick={saveSelections}>Save to My List</Button>
       </div>
     </div>
   );

@@ -6,7 +6,9 @@
 
 function snakeToCamel(str) {
   if (typeof str !== 'string') {
-    throw new TypeError(`expected argument of type string, received ${typeof str}`);
+    throw new TypeError(
+      `expected argument of type string, received ${typeof str}`,
+    );
   }
 
   return str.replace(/_[a-z]/g, (char) => char[1].toUpperCase());
@@ -14,7 +16,9 @@ function snakeToCamel(str) {
 
 function camelToSnake(str) {
   if (typeof str !== 'string') {
-    throw new TypeError(`expected argument of type string, received ${typeof str}`);
+    throw new TypeError(
+      `expected argument of type string, received ${typeof str}`,
+    );
   }
 
   return str.replace(/[A-Z]/g, (char) => `_${char.toLowerCase()}`);
@@ -32,17 +36,19 @@ function transformKey(fn) {
 
     if (Array.isArray(obj)) return obj.map(transformVariant);
 
-    return Object.entries(obj).reduce((acc, [k, v]) => ({
-      ...acc,
-      [fn(k)]: transformVariant(v),
-    }), {});
+    return Object.entries(obj).reduce(
+      (acc, [k, v]) => ({
+        ...acc,
+        [fn(k)]: transformVariant(v),
+      }),
+      {},
+    );
   };
 }
 
-const ensureCamel = transformKey(snakeToCamel);
+export const ensureCamel = transformKey(snakeToCamel);
 
-const ensureSnake = transformKey(camelToSnake);
-
+export const ensureSnake = transformKey(camelToSnake);
 
 /**
 |--------------------------------------------------
@@ -63,7 +69,9 @@ async function request(method, url, body = null) {
 }
 
 export function get(url, payload = null) {
-  const urlWithSearch = payload ? `${url}?${new URLSearchParams(payload)}` : url;
+  const urlWithSearch = payload
+    ? `${url}?${new URLSearchParams(payload)}`
+    : url;
   return request('GET', urlWithSearch);
 }
 

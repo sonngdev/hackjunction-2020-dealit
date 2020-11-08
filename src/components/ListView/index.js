@@ -46,6 +46,7 @@ function ListView() {
         {showSuggestionSlideup && (
           <SuggestionSlideup
             closeSlideup={() => setShowSuggestionSlideup(false)}
+            setListProducts={setListProducts}
           />
         )}
         <PersonalList listProducts={listProducts} />

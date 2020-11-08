@@ -9,7 +9,7 @@ function Suggestion({ suggestion, onToggleSelect, selected }) {
         {selected ? <CheckButtonSvg /> : <PlusButtonSvg />}
       </button>
       <img
-        src={suggestion.image_url}
+        src={suggestion.imageUrl}
         alt={suggestion.name}
         className="w-8 h-8 object-contain ml-5"
       />

@@ -3,7 +3,7 @@ import ListProduct from './ListProduct';
 
 function PersonalList({ listProducts }) {
   return (
-    <div>
+    <div className="mt-6">
       {listProducts.map((listProduct) => (
         <ListProduct key={listProduct.id} listProduct={listProduct} />
       ))}
