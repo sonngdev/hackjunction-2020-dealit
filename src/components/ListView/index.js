@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getListProducts } from 'utils/request.mock';
 import Header from './Header';
 import SuggestionSlideup from './SuggestionSlideup';
-import PersonalList from './PersonalList';
+import ListProduct from './ListProduct';
 import svgBackground from 'assets/svgs/background.svg';
 
 function ListView() {
@@ -49,7 +49,11 @@ function ListView() {
             setListProducts={setListProducts}
           />
         )}
-        <PersonalList listProducts={listProducts} />
+        <div className="mt-6">
+          {listProducts.map((listProduct) => (
+            <ListProduct key={listProduct.id} listProduct={listProduct} />
+          ))}
+        </div>
       </div>
     </div>
   );
