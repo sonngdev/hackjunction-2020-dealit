@@ -1,9 +1,14 @@
 import React from 'react';
 
-function ListProduct({ listProduct, openVariantSlideup }) {
+function ListProduct({
+  listProduct,
+  setVaryingListProduct,
+  openVariantSlideup,
+}) {
   const { imageUrl, name, variants } = listProduct.product;
 
   const showVariantSlideup = () => {
+    setVaryingListProduct(listProduct);
     openVariantSlideup();
   };
 

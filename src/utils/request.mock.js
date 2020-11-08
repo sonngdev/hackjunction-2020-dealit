@@ -33,10 +33,12 @@ export const getListProducts = () =>
             {
               id: 1,
               name: 'Top',
+              selected: true,
             },
             {
               id: 2,
               name: 'Front',
+              selected: false,
             },
           ],
         },

@@ -1,8 +1,12 @@
 import React, { useState, useRef } from 'react';
 import Button from 'components/Shared/Button';
 
-function VariantSlideup({ closeSlideup }) {
-  const [selectedVariant, setSelectedVariant] = useState(null);
+function VariantSlideup({ closeSlideup, listProduct }) {
+  const { imageUrl, name, variants } = listProduct.product;
+
+  const [selectedVariants, setSelectedVariants] = useState(
+    variants.filter((v) => v.selected),
+  );
 
   const backgroundRef = useRef();
   const hideSlideup = (e) => {
@@ -26,42 +30,32 @@ function VariantSlideup({ closeSlideup }) {
         />
 
         <div className="flex items-center">
-          <img
-            src="http://via.placeholder.com/150"
-            className="w-8 h-8 object-contain"
-            alt="Shampoo"
-          />
-          <div>Shampoo</div>
+          <img src={imageUrl} className="w-8 h-8 object-contain" alt={name} />
+          <div>{name}</div>
         </div>
 
-        <div className="my-2">
-          {[
-            'For top load washer',
-            'Example abc',
-            'For front load washer',
-            'Example def',
-          ]
-            .map((n, i) => ({
-              id: i,
-              name: n,
-            }))
-            .map((variant) =>
-              selectedVariant?.id === variant.id ? (
-                <button
-                  className="text-purple border border-gray-300 bg-gray-300 rounded-full px-3 py-2 inline-block mr-3 mb-3"
-                  onClick={() => setSelectedVariant(null)}
-                >
-                  {variant.name}
-                </button>
-              ) : (
-                <button
-                  className="text-purple border border-purple rounded-full px-3 py-2 inline-block opacity-50 mr-3 mb-3"
-                  onClick={() => setSelectedVariant(variant)}
-                >
-                  {variant.name}
-                </button>
-              ),
-            )}
+        <div className="mt-2 mb-16">
+          {variants.map((variant) =>
+            selectedVariants.includes(variant) ? (
+              <button
+                key={variant.id}
+                className="text-purple border border-gray-300 bg-gray-300 rounded-full px-3 py-2 inline-block mr-3 mb-3"
+                onClick={() =>
+                  setSelectedVariants((vs) => vs.filter((v) => v !== variant))
+                }
+              >
+                {variant.name}
+              </button>
+            ) : (
+              <button
+                key={variant.id}
+                className="text-purple border border-purple rounded-full px-3 py-2 inline-block opacity-50 mr-3 mb-3"
+                onClick={() => setSelectedVariants((vs) => [...vs, variant])}
+              >
+                {variant.name}
+              </button>
+            ),
+          )}
         </div>
 
         <Button>Save</Button>

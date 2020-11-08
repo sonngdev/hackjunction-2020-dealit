@@ -10,6 +10,7 @@ function ListView() {
   const [showSuggestionSlideup, setShowSuggestionSlideup] = useState(false);
   const [showVariantSlideup, setShowVariantSlideup] = useState(false);
   const [listProducts, setListProducts] = useState([]);
+  const [varyingListProduct, setVaryingListProduct] = useState(null);
 
   useEffect(() => {
     const request = async () => {
@@ -58,13 +59,17 @@ function ListView() {
             <ListProduct
               key={listProduct.id}
               listProduct={listProduct}
+              setVaryingListProduct={setVaryingListProduct}
               openVariantSlideup={() => setShowVariantSlideup(true)}
             />
           ))}
         </div>
 
         {showVariantSlideup && (
-          <VariantSlideup closeSlideup={() => setShowVariantSlideup(false)} />
+          <VariantSlideup
+            closeSlideup={() => setShowVariantSlideup(false)}
+            listProduct={varyingListProduct}
+          />
         )}
       </div>
     </div>
