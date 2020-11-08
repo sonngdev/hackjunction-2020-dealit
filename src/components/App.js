@@ -6,7 +6,7 @@ import DealView from './DealView';
 import store from '../redux/store';
 
 function App() {
-  const [view, setView] = useState('list');
+  const [view, setView] = useState('match');
 
   return (
     <Provider store={store}>
