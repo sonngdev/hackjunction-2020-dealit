@@ -57,6 +57,8 @@ function ListView() {
           </div>
         </div>
 
+        <Button>Find my deals</Button>
+
         {showSuggestionSlideup && (
           <SuggestionSlideup
             closeSlideup={() => setShowSuggestionSlideup(false)}
@@ -71,8 +73,6 @@ function ListView() {
             setListProducts={setListProducts}
           />
         )}
-
-        <Button>Find my deals</Button>
       </div>
     </div>
   );
